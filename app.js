@@ -8,6 +8,7 @@ const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
 
+const cors = require("cors");
 
 mongoose
   .connect('mongodb://localhost/project3-back', {useNewUrlParser: true})
@@ -48,13 +49,22 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
-
+app.use(cors({
+  //allow other domains/origins to send cookies
+  credentials: true,
+  // this is the domain we want cookies from (our React App)
+  origin: "http://localhost:3000"
+}));
 
 const index = require('./routes/index');
 app.use('/', index);
 
 const product = require('./routes/product');
 app.use('/', product);
+
+const homePage = require('./routes/HomePage.js');
+app.use('/api', homePage);
+
 
 
 module.exports = app;
