@@ -59,8 +59,8 @@ app.use(cors({
 const index = require('./routes/index');
 app.use('/', index);
 
-const product = require('./routes/product');
-app.use('/', product);
+// const product = require('./routes/product');
+// app.use('/', product);
 
 const homePage = require('./routes/HomePage.js');
 app.use('/api', homePage);
