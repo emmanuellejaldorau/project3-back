@@ -68,5 +68,8 @@ app.use('/api', product);
 const about = require('./routes/about');
 app.use('/api', about);
 
+const about = require('./routes/contact');
+app.use('/api', contact);
+
 
 module.exports = app;
