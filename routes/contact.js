@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const request = require('request');
+const fetch = require('node-fetch')
 
 /* GET home page */
 router.get("/contact", (req, res, next) => {
@@ -12,8 +13,8 @@ router.get("/contact", (req, res, next) => {
   request.get(projectUrl)
     .on('error', err => next(err))
     .pipe(res);
+  });
 
 
-});
 
 module.exports = router;
