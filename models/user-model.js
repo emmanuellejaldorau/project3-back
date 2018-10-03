@@ -13,7 +13,8 @@ const userSchema = new Schema({
     match: /^.+@.+\..+$/,
   },
   encryptedPassword: { type: String },
-  avatar: { type: String  }
+  avatar: { type: String  },
+  wishList: [ String  ],
 }, {
   // additional settings for Schema constructor function (class)
   timestamps: true,
