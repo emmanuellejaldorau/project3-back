@@ -25,7 +25,7 @@ router.post('/send-email', (req, res, next) => {
     subject: "New customer email from your website 🕶!",
     text: `${message}`,
     html: `
-    <h2>Hello Pauline!</h2>
+    <h2>Hello ArtisanApp!</h2>
     <h3>You have just received a new message from ${fullName}.</h3>
     <br />
     <h3>Message</h3>
