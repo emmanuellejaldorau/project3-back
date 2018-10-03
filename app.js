@@ -16,7 +16,7 @@ const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
 mongoose
-  .connect('mongodb://localhost/project3-back', { useNewUrlParser: true })
+  .connect(process.env.MONGODB_URI, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -46,7 +46,7 @@ app.use(require('node-sass-middleware')({
 
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 
@@ -91,6 +91,13 @@ app.use('/api', messages);
 
 const authRouter = require("./routes/auth-router.js");
 app.use("/api", authRouter);
+
+
+app.use((req,res,next)=> {
+  res.sendFile(path.join(__dirname, "public","index.html"))
+})
+
+
 
 
 module.exports = app;

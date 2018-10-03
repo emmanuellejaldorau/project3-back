@@ -73,6 +73,25 @@ router.get("/checklogin", (req,res,next) => {
     res.json({userDoc: null});
   }
   
-  })
+  });
+
+
+  router.put("/edit-user", (req, res, next) => {
+    const { currentUser, fullName, email } = req.body;
+    const  id  = currentUser._id;
+    
+  
+    User.findByIdAndUpdate(
+      id,
+      { $set: { fullName, email } },
+      // "new" gets the updated version of the document
+      { runValidators: true, new: true }
+    )
+      .then(UserDoc => res.json(UserDoc))
+      .catch(err => next(err));
+  });
+
+
+
 
 module.exports = router;
