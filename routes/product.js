@@ -4,6 +4,29 @@ const router = express.Router();
 const fetch = require('node-fetch');
 
 
+router.get("/women-category", (req,res,next) => {
+  let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/v2/women";
+  fetch(projectUrl)
+    .then(response => response.json())
+    .then(response => {
+      res.json(response);
+      console.log(response);
+    })
+    .catch(err => console.log(err));
+  });
+
+
+router.get("/men-category", (req,res,next) => {
+  let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/v2/men";
+  fetch(projectUrl)
+    .then(response => response.json())
+    .then(response => {
+      res.json(response);
+      console.log(response);
+    })
+    .catch(err => console.log(err));
+  });
+
 router.get("/products", (req,res,next) => {
   let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/V2/products";
   fetch(projectUrl)
