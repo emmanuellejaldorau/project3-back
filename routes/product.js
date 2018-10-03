@@ -11,7 +11,7 @@ router.get("/women-category", (req,res,next) => {
     .then(response => response.json())
     .then(response => {
       res.json(response);
-      console.log(response);
+      // console.log(response);
     })
     .catch(err => console.log(err));
   });
@@ -23,7 +23,7 @@ router.get("/men-category", (req,res,next) => {
     .then(response => response.json())
     .then(response => {
       res.json(response);
-      console.log(response);
+      // console.log(response);
     })
     .catch(err => console.log(err));
   });
