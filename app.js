@@ -92,6 +92,9 @@ app.use('/api', messages);
 const authRouter = require("./routes/auth-router.js");
 app.use("/api", authRouter);
 
+const accountRouter = require("./routes/Account.js");
+app.use("/api", accountRouter);
+
 
 app.use((req,res,next)=> {
   res.sendFile(path.join(__dirname, "public","index.html"))
