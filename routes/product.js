@@ -29,7 +29,7 @@ router.get("/men-category", (req,res,next) => {
   });
 
 router.get("/products", (req,res,next) => {
-  let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/V2/products";
+  let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/V2/products?per_page=100";
   fetch(projectUrl)
     .then(response => response.json())
     .then(response => {
