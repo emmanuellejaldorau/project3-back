@@ -92,7 +92,7 @@ router.put("/wish-list-products", (req,res,next) => {
 
   const {wishListArray} = req.body;
 
-  let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/V2/products";
+  let projectUrl = "http://dev.paulettepaulette.com/admin/wp-json/wp/V2/products?per_page=100";
   fetch(projectUrl)
     .then(response => response.json())
     .then(response => {
